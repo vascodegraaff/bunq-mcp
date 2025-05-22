@@ -1,0 +1,261 @@
+# coding: utf-8
+
+from fastapi.testclient import TestClient
+
+
+from pydantic import Field, StrictInt, StrictStr  # noqa: F401
+from typing import Any, Dict, List, Optional  # noqa: F401
+from typing_extensions import Annotated  # noqa: F401
+from openapi_server.models.bunq_me_fundraiser_profile_entry_payment_create import BunqMeFundraiserProfileEntryPaymentCreate  # noqa: F401
+from openapi_server.models.bunq_me_tab_entry_payment import BunqMeTabEntryPayment  # noqa: F401
+from openapi_server.models.bunq_me_tab_entry_payment_create import BunqMeTabEntryPaymentCreate  # noqa: F401
+from openapi_server.models.create1brn400_response import CREATE1brn400Response  # noqa: F401
+from openapi_server.models.credit_line_repayment_payment_listing import CreditLineRepaymentPaymentListing  # noqa: F401
+from openapi_server.models.payment import Payment  # noqa: F401
+from openapi_server.models.payment_create import PaymentCreate  # noqa: F401
+from openapi_server.models.payment_listing import PaymentListing  # noqa: F401
+from openapi_server.models.payment_read import PaymentRead  # noqa: F401
+from openapi_server.models.payment_update import PaymentUpdate  # noqa: F401
+
+
+def test_c_reate_payment_for_user_monetary_account(client: TestClient):
+    """Test case for c_reate_payment_for_user_monetary_account
+
+    
+    """
+    payment = {"bunqto_share_url":"bunqto_share_url","batch_id":7,"monetary_account_id":4,"description":"description","bunqto_status":"bunqto_status","type":"type","payment_suspended_outgoing":{"time_execution":"time_execution","monetary_account_id":"monetary_account_id","status":"status"},"balance_after_mutation":{"currency":"currency","value":"value"},"attachment":[{"monetary_account_id":3,"id":9},{"monetary_account_id":3,"id":9}],"sub_type":"sub_type","merchant_reference":"merchant_reference","counterparty_alias":{"country":"country","swift_bic":"swift_bic","is_light":1,"merchant_category_code":"merchant_category_code","iban":"iban","transferwise_bank_code":"transferwise_bank_code","label_user":{"country":"country","public_nick_name":"public_nick_name","avatar":{"anchor_uuid":"anchor_uuid","image":[{"content_type":"content_type","attachment_public_uuid":"attachment_public_uuid","width":5,"height":1},{"content_type":"content_type","attachment_public_uuid":"attachment_public_uuid","width":5,"height":1}],"style":"style","uuid":"uuid"},"display_name":"display_name","uuid":"uuid"},"transferwise_account_number":"transferwise_account_number","avatar":{"anchor_uuid":"anchor_uuid","image":[{"content_type":"content_type","attachment_public_uuid":"attachment_public_uuid","width":5,"height":1},{"content_type":"content_type","attachment_public_uuid":"attachment_public_uuid","width":5,"height":1}],"style":"style","uuid":"uuid"},"display_name":"display_name","bunq_me":{"service":"service","name":"name","type":"type","value":"value"},"swift_account_number":"swift_account_number"},"alias":{"country":"country","swift_bic":"swift_bic","is_light":1,"merchant_category_code":"merchant_category_code","iban":"iban","transferwise_bank_code":"transferwise_bank_code","label_user":{"country":"country","public_nick_name":"public_nick_name","avatar":{"anchor_uuid":"anchor_uuid","image":[{"content_type":"content_type","attachment_public_uuid":"attachment_public_uuid","width":5,"height":1},{"content_type":"content_type","attachment_public_uuid":"attachment_public_uuid","width":5,"height":1}],"style":"style","uuid":"uuid"},"display_name":"display_name","uuid":"uuid"},"transferwise_account_number":"transferwise_account_number","avatar":{"anchor_uuid":"anchor_uuid","image":[{"content_type":"content_type","attachment_public_uuid":"attachment_public_uuid","width":5,"height":1},{"content_type":"content_type","attachment_public_uuid":"attachment_public_uuid","width":5,"height":1}],"style":"style","uuid":"uuid"},"display_name":"display_name","bunq_me":{"service":"service","name":"name","type":"type","value":"value"},"swift_account_number":"swift_account_number"},"id":2,"payment_arrival_expected":{"time":"time","status":"status"},"scheduled_id":1,"amount":{"currency":"currency","value":"value"},"created":"created","bunqto_sub_status":"bunqto_sub_status","bunqto_expiry":"bunqto_expiry","allow_bunqto":1,"request_reference_split_the_bill":[{"id":1,"type":"type"},{"id":1,"type":"type"}],"payment_fee":{"invoice_id":6,"currency":"currency","value":"value"},"address_billing":{"country":"country","is_user_address_updated":1,"province":"province","city":"city","mailbox_name":"mailbox_name","street":"street","extra":"extra","house_number":"house_number","po_box":"po_box","postal_code":"postal_code"},"bunqto_time_responded":"bunqto_time_responded","payment_auto_allocate_instance":{"error_message":[[{"error_description":"error_description","error_description_translated":"error_description_translated"},{"error_description":"error_description","error_description_translated":"error_description_translated"}],[{"error_description":"error_description","error_description_translated":"error_description_translated"},{"error_description":"error_description","error_description_translated":"error_description_translated"}]],"payment_batch":{"payments":[null,null]},"created":"created","payment_auto_allocate_id":5,"payment_id":9,"id":4,"all_ginmon_transaction_order":[{"amount_billing":{"currency":"currency","value":"value"},"status_description":"status_description","external_identifier":"external_identifier","label_monetary_account":{"country":"country","swift_bic":"swift_bic","is_light":1,"merchant_category_code":"merchant_category_code","iban":"iban","transferwise_bank_code":"transferwise_bank_code","label_user":{"country":"country","public_nick_name":"public_nick_name","avatar":{"anchor_uuid":"anchor_uuid","image":[{"content_type":"content_type","attachment_public_uuid":"attachment_public_uuid","width":5,"height":1},{"content_type":"content_type","attachment_public_uuid":"attachment_public_uuid","width":5,"height":1}],"style":"style","uuid":"uuid"},"display_name":"display_name","uuid":"uuid"},"transferwise_account_number":"transferwise_account_number","avatar":{"anchor_uuid":"anchor_uuid","image":[{"content_type":"content_type","attachment_public_uuid":"attachment_public_uuid","width":5,"height":1},{"content_type":"content_type","attachment_public_uuid":"attachment_public_uuid","width":5,"height":1}],"style":"style","uuid":"uuid"},"display_name":"display_name","bunq_me":{"service":"service","name":"name","type":"type","value":"value"},"swift_account_number":"swift_account_number"},"event_id":9,"counter_label_monetary_account":{"country":"country","swift_bic":"swift_bic","is_light":1,"merchant_category_code":"merchant_category_code","iban":"iban","transferwise_bank_code":"transferwise_bank_code","label_user":{"country":"country","public_nick_name":"public_nick_name","avatar":{"anchor_uuid":"anchor_uuid","image":[{"content_type":"content_type","attachment_public_uuid":"attachment_public_uuid","width":5,"height":1},{"content_type":"content_type","attachment_public_uuid":"attachment_public_uuid","width":5,"height":1}],"style":"style","uuid":"uuid"},"display_name":"display_name","uuid":"uuid"},"transferwise_account_number":"transferwise_account_number","avatar":{"anchor_uuid":"anchor_uuid","image":[{"content_type":"content_type","attachment_public_uuid":"attachment_public_uuid","width":5,"height":1},{"content_type":"content_type","attachment_public_uuid":"attachment_public_uuid","width":5,"height":1}],"style":"style","uuid":"uuid"},"display_name":"display_name","bunq_me":{"service":"service","name":"name","type":"type","value":"value"},"swift_account_number":"swift_account_number"},"status_description_translated":"status_description_translated","label_user":{"country":"country","public_nick_name":"public_nick_name","avatar":{"anchor_uuid":"anchor_uuid","image":[{"content_type":"content_type","attachment_public_uuid":"attachment_public_uuid","width":5,"height":1},{"content_type":"content_type","attachment_public_uuid":"attachment_public_uuid","width":5,"height":1}],"style":"style","uuid":"uuid"},"display_name":"display_name","uuid":"uuid"},"amount_billing_original":{"currency":"currency","value":"value"},"isin":"isin","status":"status"},{"amount_billing":{"currency":"currency","value":"value"},"status_description":"status_description","external_identifier":"external_identifier","label_monetary_account":{"country":"country","swift_bic":"swift_bic","is_light":1,"merchant_category_code":"merchant_category_code","iban":"iban","transferwise_bank_code":"transferwise_bank_code","label_user":{"country":"country","public_nick_name":"public_nick_name","avatar":{"anchor_uuid":"anchor_uuid","image":[{"content_type":"content_type","attachment_public_uuid":"attachment_public_uuid","width":5,"height":1},{"content_type":"content_type","attachment_public_uuid":"attachment_public_uuid","width":5,"height":1}],"style":"style","uuid":"uuid"},"display_name":"display_name","uuid":"uuid"},"transferwise_account_number":"transferwise_account_number","avatar":{"anchor_uuid":"anchor_uuid","image":[{"content_type":"content_type","attachment_public_uuid":"attachment_public_uuid","width":5,"height":1},{"content_type":"content_type","attachment_public_uuid":"attachment_public_uuid","width":5,"height":1}],"style":"style","uuid":"uuid"},"display_name":"display_name","bunq_me":{"service":"service","name":"name","type":"type","value":"value"},"swift_account_number":"swift_account_number"},"event_id":9,"counter_label_monetary_account":{"country":"country","swift_bic":"swift_bic","is_light":1,"merchant_category_code":"merchant_category_code","iban":"iban","transferwise_bank_code":"transferwise_bank_code","label_user":{"country":"country","public_nick_name":"public_nick_name","avatar":{"anchor_uuid":"anchor_uuid","image":[{"content_type":"content_type","attachment_public_uuid":"attachment_public_uuid","width":5,"height":1},{"content_type":"content_type","attachment_public_uuid":"attachment_public_uuid","width":5,"height":1}],"style":"style","uuid":"uuid"},"display_name":"display_name","uuid":"uuid"},"transferwise_account_number":"transferwise_account_number","avatar":{"anchor_uuid":"anchor_uuid","image":[{"content_type":"content_type","attachment_public_uuid":"attachment_public_uuid","width":5,"height":1},{"content_type":"content_type","attachment_public_uuid":"attachment_public_uuid","width":5,"height":1}],"style":"style","uuid":"uuid"},"display_name":"display_name","bunq_me":{"service":"service","name":"name","type":"type","value":"value"},"swift_account_number":"swift_account_number"},"status_description_translated":"status_description_translated","label_user":{"country":"country","public_nick_name":"public_nick_name","avatar":{"anchor_uuid":"anchor_uuid","image":[{"content_type":"content_type","attachment_public_uuid":"attachment_public_uuid","width":5,"height":1},{"content_type":"content_type","attachment_public_uuid":"attachment_public_uuid","width":5,"height":1}],"style":"style","uuid":"uuid"},"display_name":"display_name","uuid":"uuid"},"amount_billing_original":{"currency":"currency","value":"value"},"isin":"isin","status":"status"}],"updated":"updated","status":"status"},"updated":"updated","address_shipping":{"country":"country","is_user_address_updated":1,"province":"province","city":"city","mailbox_name":"mailbox_name","street":"street","extra":"extra","house_number":"house_number","po_box":"po_box","postal_code":"postal_code"},"geolocation":{"altitude":6,"latitude":1,"radius":7,"longitude":1}}
+
+    headers = {
+        "cache_control": 'cache_control_example',
+        "user_agent": 'user_agent_example',
+        "x_bunq_language": 'x_bunq_language_example',
+        "x_bunq_region": 'x_bunq_region_example',
+        "x_bunq_client_request_id": 'x_bunq_client_request_id_example',
+        "x_bunq_geolocation": 'x_bunq_geolocation_example',
+        "x_bunq_client_authentication": 'x_bunq_client_authentication_example',
+    }
+    # uncomment below to make a request
+    #response = client.request(
+    #    "POST",
+    #    "/user/{userID}/monetary-account/{monetary-accountID}/payment".format(userID=56, monetary-accountID=56),
+    #    headers=headers,
+    #    json=payment,
+    #)
+
+    # uncomment below to assert the status code of the HTTP response
+    #assert response.status_code == 200
+
+
+def test_c_reate_payment_for_user_monetary_account_bunqme_fundraiser_profile_entry(client: TestClient):
+    """Test case for c_reate_payment_for_user_monetary_account_bunqme_fundraiser_profile_entry
+
+    
+    """
+    body = None
+
+    headers = {
+        "cache_control": 'cache_control_example',
+        "user_agent": 'user_agent_example',
+        "x_bunq_language": 'x_bunq_language_example',
+        "x_bunq_region": 'x_bunq_region_example',
+        "x_bunq_client_request_id": 'x_bunq_client_request_id_example',
+        "x_bunq_geolocation": 'x_bunq_geolocation_example',
+        "x_bunq_client_authentication": 'x_bunq_client_authentication_example',
+    }
+    # uncomment below to make a request
+    #response = client.request(
+    #    "POST",
+    #    "/user/{userID}/monetary-account/{monetary-accountID}/bunqme-fundraiser-profile-entry/{bunqme-fundraiser-profile-entryID}/payment".format(userID=56, monetary-accountID=56, bunqme-fundraiser-profile-entryID=56),
+    #    headers=headers,
+    #    json=body,
+    #)
+
+    # uncomment below to assert the status code of the HTTP response
+    #assert response.status_code == 200
+
+
+def test_c_reate_payment_for_user_monetary_account_bunqme_tab_entry(client: TestClient):
+    """Test case for c_reate_payment_for_user_monetary_account_bunqme_tab_entry
+
+    
+    """
+    bunq_me_tab_entry_payment = {"amount":{"currency":"currency","value":"value"}}
+
+    headers = {
+        "cache_control": 'cache_control_example',
+        "user_agent": 'user_agent_example',
+        "x_bunq_language": 'x_bunq_language_example',
+        "x_bunq_region": 'x_bunq_region_example',
+        "x_bunq_client_request_id": 'x_bunq_client_request_id_example',
+        "x_bunq_geolocation": 'x_bunq_geolocation_example',
+        "x_bunq_client_authentication": 'x_bunq_client_authentication_example',
+    }
+    # uncomment below to make a request
+    #response = client.request(
+    #    "POST",
+    #    "/user/{userID}/monetary-account/{monetary-accountID}/bunqme-tab-entry/{bunqme-tab-entryID}/payment".format(userID=56, monetary-accountID=56, bunqme-tab-entryID=56),
+    #    headers=headers,
+    #    json=bunq_me_tab_entry_payment,
+    #)
+
+    # uncomment below to assert the status code of the HTTP response
+    #assert response.status_code == 200
+
+
+def test_list_all_payment_for_user_activity_map_place(client: TestClient):
+    """Test case for list_all_payment_for_user_activity_map_place
+
+    
+    """
+
+    headers = {
+        "cache_control": 'cache_control_example',
+        "user_agent": 'user_agent_example',
+        "x_bunq_language": 'x_bunq_language_example',
+        "x_bunq_region": 'x_bunq_region_example',
+        "x_bunq_client_request_id": 'x_bunq_client_request_id_example',
+        "x_bunq_geolocation": 'x_bunq_geolocation_example',
+        "x_bunq_client_authentication": 'x_bunq_client_authentication_example',
+    }
+    # uncomment below to make a request
+    #response = client.request(
+    #    "GET",
+    #    "/user/{userID}/activity-map-place/{activity-map-placeID}/payment".format(userID=56, activity-map-placeID=56),
+    #    headers=headers,
+    #)
+
+    # uncomment below to assert the status code of the HTTP response
+    #assert response.status_code == 200
+
+
+def test_list_all_payment_for_user_credit_line_repayment(client: TestClient):
+    """Test case for list_all_payment_for_user_credit_line_repayment
+
+    
+    """
+
+    headers = {
+        "cache_control": 'cache_control_example',
+        "user_agent": 'user_agent_example',
+        "x_bunq_language": 'x_bunq_language_example',
+        "x_bunq_region": 'x_bunq_region_example',
+        "x_bunq_client_request_id": 'x_bunq_client_request_id_example',
+        "x_bunq_geolocation": 'x_bunq_geolocation_example',
+        "x_bunq_client_authentication": 'x_bunq_client_authentication_example',
+    }
+    # uncomment below to make a request
+    #response = client.request(
+    #    "GET",
+    #    "/user/{userID}/credit-line/{credit-lineID}/repayment/{repaymentID}/payment".format(userID=56, credit-lineID=56, repaymentID=56),
+    #    headers=headers,
+    #)
+
+    # uncomment below to assert the status code of the HTTP response
+    #assert response.status_code == 200
+
+
+def test_list_all_payment_for_user_monetary_account(client: TestClient):
+    """Test case for list_all_payment_for_user_monetary_account
+
+    
+    """
+
+    headers = {
+        "cache_control": 'cache_control_example',
+        "user_agent": 'user_agent_example',
+        "x_bunq_language": 'x_bunq_language_example',
+        "x_bunq_region": 'x_bunq_region_example',
+        "x_bunq_client_request_id": 'x_bunq_client_request_id_example',
+        "x_bunq_geolocation": 'x_bunq_geolocation_example',
+        "x_bunq_client_authentication": 'x_bunq_client_authentication_example',
+    }
+    # uncomment below to make a request
+    #response = client.request(
+    #    "GET",
+    #    "/user/{userID}/monetary-account/{monetary-accountID}/payment".format(userID=56, monetary-accountID=56),
+    #    headers=headers,
+    #)
+
+    # uncomment below to assert the status code of the HTTP response
+    #assert response.status_code == 200
+
+
+def test_list_all_payment_for_user_monetary_account_mastercard_action(client: TestClient):
+    """Test case for list_all_payment_for_user_monetary_account_mastercard_action
+
+    
+    """
+
+    headers = {
+        "cache_control": 'cache_control_example',
+        "user_agent": 'user_agent_example',
+        "x_bunq_language": 'x_bunq_language_example',
+        "x_bunq_region": 'x_bunq_region_example',
+        "x_bunq_client_request_id": 'x_bunq_client_request_id_example',
+        "x_bunq_geolocation": 'x_bunq_geolocation_example',
+        "x_bunq_client_authentication": 'x_bunq_client_authentication_example',
+    }
+    # uncomment below to make a request
+    #response = client.request(
+    #    "GET",
+    #    "/user/{userID}/monetary-account/{monetary-accountID}/mastercard-action/{mastercard-actionID}/payment".format(userID=56, monetary-accountID=56, mastercard-actionID=56),
+    #    headers=headers,
+    #)
+
+    # uncomment below to assert the status code of the HTTP response
+    #assert response.status_code == 200
+
+
+def test_r_ead_payment_for_user_monetary_account(client: TestClient):
+    """Test case for r_ead_payment_for_user_monetary_account
+
+    
+    """
+
+    headers = {
+        "cache_control": 'cache_control_example',
+        "user_agent": 'user_agent_example',
+        "x_bunq_language": 'x_bunq_language_example',
+        "x_bunq_region": 'x_bunq_region_example',
+        "x_bunq_client_request_id": 'x_bunq_client_request_id_example',
+        "x_bunq_geolocation": 'x_bunq_geolocation_example',
+        "x_bunq_client_authentication": 'x_bunq_client_authentication_example',
+    }
+    # uncomment below to make a request
+    #response = client.request(
+    #    "GET",
+    #    "/user/{userID}/monetary-account/{monetary-accountID}/payment/{itemId}".format(userID=56, monetary-accountID=56, itemId=56),
+    #    headers=headers,
+    #)
+
+    # uncomment below to assert the status code of the HTTP response
+    #assert response.status_code == 200
+
+
+def test_u_pdate_payment_for_user_monetary_account(client: TestClient):
+    """Test case for u_pdate_payment_for_user_monetary_account
+
+    
+    """
+    payment = {"bunqto_share_url":"bunqto_share_url","batch_id":7,"monetary_account_id":4,"description":"description","bunqto_status":"bunqto_status","type":"type","payment_suspended_outgoing":{"time_execution":"time_execution","monetary_account_id":"monetary_account_id","status":"status"},"balance_after_mutation":{"currency":"currency","value":"value"},"attachment":[{"monetary_account_id":3,"id":9},{"monetary_account_id":3,"id":9}],"sub_type":"sub_type","merchant_reference":"merchant_reference","counterparty_alias":{"country":"country","swift_bic":"swift_bic","is_light":1,"merchant_category_code":"merchant_category_code","iban":"iban","transferwise_bank_code":"transferwise_bank_code","label_user":{"country":"country","public_nick_name":"public_nick_name","avatar":{"anchor_uuid":"anchor_uuid","image":[{"content_type":"content_type","attachment_public_uuid":"attachment_public_uuid","width":5,"height":1},{"content_type":"content_type","attachment_public_uuid":"attachment_public_uuid","width":5,"height":1}],"style":"style","uuid":"uuid"},"display_name":"display_name","uuid":"uuid"},"transferwise_account_number":"transferwise_account_number","avatar":{"anchor_uuid":"anchor_uuid","image":[{"content_type":"content_type","attachment_public_uuid":"attachment_public_uuid","width":5,"height":1},{"content_type":"content_type","attachment_public_uuid":"attachment_public_uuid","width":5,"height":1}],"style":"style","uuid":"uuid"},"display_name":"display_name","bunq_me":{"service":"service","name":"name","type":"type","value":"value"},"swift_account_number":"swift_account_number"},"alias":{"country":"country","swift_bic":"swift_bic","is_light":1,"merchant_category_code":"merchant_category_code","iban":"iban","transferwise_bank_code":"transferwise_bank_code","label_user":{"country":"country","public_nick_name":"public_nick_name","avatar":{"anchor_uuid":"anchor_uuid","image":[{"content_type":"content_type","attachment_public_uuid":"attachment_public_uuid","width":5,"height":1},{"content_type":"content_type","attachment_public_uuid":"attachment_public_uuid","width":5,"height":1}],"style":"style","uuid":"uuid"},"display_name":"display_name","uuid":"uuid"},"transferwise_account_number":"transferwise_account_number","avatar":{"anchor_uuid":"anchor_uuid","image":[{"content_type":"content_type","attachment_public_uuid":"attachment_public_uuid","width":5,"height":1},{"content_type":"content_type","attachment_public_uuid":"attachment_public_uuid","width":5,"height":1}],"style":"style","uuid":"uuid"},"display_name":"display_name","bunq_me":{"service":"service","name":"name","type":"type","value":"value"},"swift_account_number":"swift_account_number"},"id":2,"payment_arrival_expected":{"time":"time","status":"status"},"scheduled_id":1,"amount":{"currency":"currency","value":"value"},"created":"created","bunqto_sub_status":"bunqto_sub_status","bunqto_expiry":"bunqto_expiry","allow_bunqto":1,"request_reference_split_the_bill":[{"id":1,"type":"type"},{"id":1,"type":"type"}],"payment_fee":{"invoice_id":6,"currency":"currency","value":"value"},"address_billing":{"country":"country","is_user_address_updated":1,"province":"province","city":"city","mailbox_name":"mailbox_name","street":"street","extra":"extra","house_number":"house_number","po_box":"po_box","postal_code":"postal_code"},"bunqto_time_responded":"bunqto_time_responded","payment_auto_allocate_instance":{"error_message":[[{"error_description":"error_description","error_description_translated":"error_description_translated"},{"error_description":"error_description","error_description_translated":"error_description_translated"}],[{"error_description":"error_description","error_description_translated":"error_description_translated"},{"error_description":"error_description","error_description_translated":"error_description_translated"}]],"payment_batch":{"payments":[null,null]},"created":"created","payment_auto_allocate_id":5,"payment_id":9,"id":4,"all_ginmon_transaction_order":[{"amount_billing":{"currency":"currency","value":"value"},"status_description":"status_description","external_identifier":"external_identifier","label_monetary_account":{"country":"country","swift_bic":"swift_bic","is_light":1,"merchant_category_code":"merchant_category_code","iban":"iban","transferwise_bank_code":"transferwise_bank_code","label_user":{"country":"country","public_nick_name":"public_nick_name","avatar":{"anchor_uuid":"anchor_uuid","image":[{"content_type":"content_type","attachment_public_uuid":"attachment_public_uuid","width":5,"height":1},{"content_type":"content_type","attachment_public_uuid":"attachment_public_uuid","width":5,"height":1}],"style":"style","uuid":"uuid"},"display_name":"display_name","uuid":"uuid"},"transferwise_account_number":"transferwise_account_number","avatar":{"anchor_uuid":"anchor_uuid","image":[{"content_type":"content_type","attachment_public_uuid":"attachment_public_uuid","width":5,"height":1},{"content_type":"content_type","attachment_public_uuid":"attachment_public_uuid","width":5,"height":1}],"style":"style","uuid":"uuid"},"display_name":"display_name","bunq_me":{"service":"service","name":"name","type":"type","value":"value"},"swift_account_number":"swift_account_number"},"event_id":9,"counter_label_monetary_account":{"country":"country","swift_bic":"swift_bic","is_light":1,"merchant_category_code":"merchant_category_code","iban":"iban","transferwise_bank_code":"transferwise_bank_code","label_user":{"country":"country","public_nick_name":"public_nick_name","avatar":{"anchor_uuid":"anchor_uuid","image":[{"content_type":"content_type","attachment_public_uuid":"attachment_public_uuid","width":5,"height":1},{"content_type":"content_type","attachment_public_uuid":"attachment_public_uuid","width":5,"height":1}],"style":"style","uuid":"uuid"},"display_name":"display_name","uuid":"uuid"},"transferwise_account_number":"transferwise_account_number","avatar":{"anchor_uuid":"anchor_uuid","image":[{"content_type":"content_type","attachment_public_uuid":"attachment_public_uuid","width":5,"height":1},{"content_type":"content_type","attachment_public_uuid":"attachment_public_uuid","width":5,"height":1}],"style":"style","uuid":"uuid"},"display_name":"display_name","bunq_me":{"service":"service","name":"name","type":"type","value":"value"},"swift_account_number":"swift_account_number"},"status_description_translated":"status_description_translated","label_user":{"country":"country","public_nick_name":"public_nick_name","avatar":{"anchor_uuid":"anchor_uuid","image":[{"content_type":"content_type","attachment_public_uuid":"attachment_public_uuid","width":5,"height":1},{"content_type":"content_type","attachment_public_uuid":"attachment_public_uuid","width":5,"height":1}],"style":"style","uuid":"uuid"},"display_name":"display_name","uuid":"uuid"},"amount_billing_original":{"currency":"currency","value":"value"},"isin":"isin","status":"status"},{"amount_billing":{"currency":"currency","value":"value"},"status_description":"status_description","external_identifier":"external_identifier","label_monetary_account":{"country":"country","swift_bic":"swift_bic","is_light":1,"merchant_category_code":"merchant_category_code","iban":"iban","transferwise_bank_code":"transferwise_bank_code","label_user":{"country":"country","public_nick_name":"public_nick_name","avatar":{"anchor_uuid":"anchor_uuid","image":[{"content_type":"content_type","attachment_public_uuid":"attachment_public_uuid","width":5,"height":1},{"content_type":"content_type","attachment_public_uuid":"attachment_public_uuid","width":5,"height":1}],"style":"style","uuid":"uuid"},"display_name":"display_name","uuid":"uuid"},"transferwise_account_number":"transferwise_account_number","avatar":{"anchor_uuid":"anchor_uuid","image":[{"content_type":"content_type","attachment_public_uuid":"attachment_public_uuid","width":5,"height":1},{"content_type":"content_type","attachment_public_uuid":"attachment_public_uuid","width":5,"height":1}],"style":"style","uuid":"uuid"},"display_name":"display_name","bunq_me":{"service":"service","name":"name","type":"type","value":"value"},"swift_account_number":"swift_account_number"},"event_id":9,"counter_label_monetary_account":{"country":"country","swift_bic":"swift_bic","is_light":1,"merchant_category_code":"merchant_category_code","iban":"iban","transferwise_bank_code":"transferwise_bank_code","label_user":{"country":"country","public_nick_name":"public_nick_name","avatar":{"anchor_uuid":"anchor_uuid","image":[{"content_type":"content_type","attachment_public_uuid":"attachment_public_uuid","width":5,"height":1},{"content_type":"content_type","attachment_public_uuid":"attachment_public_uuid","width":5,"height":1}],"style":"style","uuid":"uuid"},"display_name":"display_name","uuid":"uuid"},"transferwise_account_number":"transferwise_account_number","avatar":{"anchor_uuid":"anchor_uuid","image":[{"content_type":"content_type","attachment_public_uuid":"attachment_public_uuid","width":5,"height":1},{"content_type":"content_type","attachment_public_uuid":"attachment_public_uuid","width":5,"height":1}],"style":"style","uuid":"uuid"},"display_name":"display_name","bunq_me":{"service":"service","name":"name","type":"type","value":"value"},"swift_account_number":"swift_account_number"},"status_description_translated":"status_description_translated","label_user":{"country":"country","public_nick_name":"public_nick_name","avatar":{"anchor_uuid":"anchor_uuid","image":[{"content_type":"content_type","attachment_public_uuid":"attachment_public_uuid","width":5,"height":1},{"content_type":"content_type","attachment_public_uuid":"attachment_public_uuid","width":5,"height":1}],"style":"style","uuid":"uuid"},"display_name":"display_name","uuid":"uuid"},"amount_billing_original":{"currency":"currency","value":"value"},"isin":"isin","status":"status"}],"updated":"updated","status":"status"},"updated":"updated","address_shipping":{"country":"country","is_user_address_updated":1,"province":"province","city":"city","mailbox_name":"mailbox_name","street":"street","extra":"extra","house_number":"house_number","po_box":"po_box","postal_code":"postal_code"},"geolocation":{"altitude":6,"latitude":1,"radius":7,"longitude":1}}
+
+    headers = {
+        "cache_control": 'cache_control_example',
+        "user_agent": 'user_agent_example',
+        "x_bunq_language": 'x_bunq_language_example',
+        "x_bunq_region": 'x_bunq_region_example',
+        "x_bunq_client_request_id": 'x_bunq_client_request_id_example',
+        "x_bunq_geolocation": 'x_bunq_geolocation_example',
+        "x_bunq_client_authentication": 'x_bunq_client_authentication_example',
+    }
+    # uncomment below to make a request
+    #response = client.request(
+    #    "PUT",
+    #    "/user/{userID}/monetary-account/{monetary-accountID}/payment/{itemId}".format(userID=56, monetary-accountID=56, itemId=56),
+    #    headers=headers,
+    #    json=payment,
+    #)
+
+    # uncomment below to assert the status code of the HTTP response
+    #assert response.status_code == 200
+

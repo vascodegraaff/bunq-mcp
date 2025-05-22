@@ -1,0 +1,40 @@
+# coding: utf-8
+
+from fastapi.testclient import TestClient
+
+
+from pydantic import Field, StrictInt, StrictStr  # noqa: F401
+from typing import Optional  # noqa: F401
+from typing_extensions import Annotated  # noqa: F401
+from openapi_server.models.create1brn400_response import CREATE1brn400Response  # noqa: F401
+from openapi_server.models.currency_cloud_payment_quote import CurrencyCloudPaymentQuote  # noqa: F401
+from openapi_server.models.currency_cloud_payment_quote_create import CurrencyCloudPaymentQuoteCreate  # noqa: F401
+
+
+def test_c_reate_currency_cloud_payment_quote_for_user_monetary_account(client: TestClient):
+    """Test case for c_reate_currency_cloud_payment_quote_for_user_monetary_account
+
+    
+    """
+    currency_cloud_payment_quote = {"pointers":[{"service":"service","name":"name","type":"type","value":"value"},{"service":"service","name":"name","type":"type","value":"value"}]}
+
+    headers = {
+        "cache_control": 'cache_control_example',
+        "user_agent": 'user_agent_example',
+        "x_bunq_language": 'x_bunq_language_example',
+        "x_bunq_region": 'x_bunq_region_example',
+        "x_bunq_client_request_id": 'x_bunq_client_request_id_example',
+        "x_bunq_geolocation": 'x_bunq_geolocation_example',
+        "x_bunq_client_authentication": 'x_bunq_client_authentication_example',
+    }
+    # uncomment below to make a request
+    #response = client.request(
+    #    "POST",
+    #    "/user/{userID}/monetary-account/{monetary-accountID}/currency-cloud-payment-quote".format(userID=56, monetary-accountID=56),
+    #    headers=headers,
+    #    json=currency_cloud_payment_quote,
+    #)
+
+    # uncomment below to assert the status code of the HTTP response
+    #assert response.status_code == 200
+
